@@ -1,0 +1,142 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# Substantive development repository: https://github.com/liamkinnally/math
+version: "v0.4"
+
+project:
+  name: "A proof of Written on the Wall II Conjecture 261"
+  description: >-
+    This Lean and Mathlib development proves Graffiti.pc Conjecture 261.
+    For a finite simple connected graph G of order at least two, let S
+    be its degree-two vertices and let L(G) be the maximum number of
+    leaves over its spanning trees. The total domination number of G is
+    at least 2|N_G(S) \ S| / L(G), where N_G(S) consists of the vertices
+    adjacent to some vertex of S. The formal proof combines a count of
+    edges incident to S with a leaf bound from a spanning tree preserving
+    a total dominating set. The compared theorem states the inequality
+    with rational division.
+  authors:
+    - "Liam Kinnally"
+  responsible_maintainers:
+    - "Liam Kinnally"
+  license: "Apache-2.0"
+
+classification:
+  arxiv: ["math.CO"]
+  msc2020: ["05C69", "05C05"]
+
+sources:
+  - title: "Written on the Wall II: Conjectures of Graffiti.pc"
+    authors: ["Ermelinda DeLaViña"]
+    id: "https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/index.html"
+    type: "other"
+    location: "Conjecture 261, announced February 23, 2007"
+    relationship: "formalizes"
+    note: >-
+      The catalog states the inequality and defines the graph invariants.
+      The listed status on November 27, 2026 was open. This repository
+      supplies a proof of that statement.
+
+  - title: "A note on the total domination number of a tree"
+    authors: ["Mustapha Chellali", "Teresa W. Haynes"]
+    id: "https://combinatorialpress.com/jcmcc-articles/volume-058/a-note-on-the-total-domination-number-of-a-tree/"
+    type: "paper"
+    location: "Journal of Combinatorial Mathematics and Combinatorial Computing 58 (2006), 189–193"
+    relationship: "background"
+    note: >-
+      Proves the leaf-based lower bound on the total domination number of a tree.
+      The Lean development proves the supporting bound by a degree count.
+
+  - title: "Some conjectures of Graffiti.pc on total domination"
+    authors: ["Ermelinda DeLaViña", "Qi Liu", "Ryan Pepper", "Bill Waller", "Douglas B. West"]
+    id: "https://www.uhd.edu/documents/academics/sciences/total-dom-2007.pdf"
+    type: "paper"
+    location: "Congressus Numerantium 185 (2007), 81–95, Lemma 2"
+    relationship: "background"
+    note: >-
+      Lemma 2 preserves the total domination number when passing to a
+      spanning tree. The Lean development constructs a spanning tree that
+      preserves a given total dominating set.
+
+  - title: "AI Village Graffiti Verification toolkit for the February 2007 total domination block"
+    contributors:
+      - name: "Claude Opus 5"
+        role: "AI agent that developed the public computational screening toolkit"
+    id: "https://gitlab.com/ai-village-agents/village/graffiti-verification/-/commit/a2c26dca5a4c7a2c41586551790207329e685f63"
+    type: "other"
+    location: "August 25, 2026 commit, verify/tools/gt2007.py and companion search tools"
+    relationship: "background"
+    note: >-
+      Earlier public computational exploration includes the exact statement
+      of Conjecture 261 in the screening code. The pinned toolkit gives
+      graph-family and finite counterexample searches. It supplies no
+      general proof used by this development.
+
+related_formalizations: []
+
+status:
+  scope: >-
+    The quotient inequality is proved for all finite simple connected
+    graphs of order at least two, using the original graph's degree-two
+    vertices and the maximum leaf count over spanning trees. The proof
+    covers the full domain where the total domination number and quotient
+    are ordinarily defined. Other conjectures in the catalog are outside
+    scope.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["GPT-6 Astra Pro"]
+      framework: "ChatGPT with Codex agents"
+      tool_setup: >-
+        Under Liam Kinnally's direction, agents developed the mathematical
+        argument, checked prior work, wrote the Lean formalization and
+        research note, and compiled and audited the proof.
+    - method: "copilot"
+      models: ["Gemini 4 Hydrogen"]
+      framework: "Gemini"
+      tool_setup: >-
+        Liam Kinnally consulted Gemini and relayed its guidance on prior
+        work and publication to the ChatGPT agents.
+  notes: >-
+    Liam Kinnally directed and maintains the project. Model contributions
+    are recorded by role. Elapsed time and costs were not tracked.
+
+fidelity:
+  divergences: >-
+    The catalog says simple connected graph. Lean makes finiteness and
+    order at least two explicit. A singleton graph has no total dominating
+    set and its spanning tree has zero leaves. The rational inequality
+    uses the same finite integer counts and positive denominator as the
+    catalog's quotient. Lean checks the positivity used to pass from the
+    cross-multiplied bound to the quotient.
+
+review:
+  status: "agent-reviewed"
+  reviewers:
+    - "ChatGPT verification agents"
+  notes: >-
+    Separate agents compared the theorem and definitions with the catalog
+    and rebuilt the Lean proof from source. A scoped prior-work search
+    found the published supporting bounds and earlier AI Village
+    computational exploration. Independent human expert review is pending.
+    Priority is unassessed.
+
+alignment:
+  namespace: "WOW261"
+  statements:
+    - source: "Written on the Wall II, Conjecture 261"
+      lean: "WOW261.conjecture261_ratio"
+      module: "Solution"
+      status: "proved"
+      note: >-
+        Challenge.lean states the quotient theorem with explicit
+        definitions. Solution.lean imports its proved counterpart.
+
+acknowledgements: >-
+  Ermelinda DeLaViña and Graffiti.pc for the conjecture, Chellali and
+  Haynes and DeLaViña and coauthors for the supporting results, AI
+  Village for earlier computational exploration, and the Lean, Mathlib,
+  and Palomar projects.

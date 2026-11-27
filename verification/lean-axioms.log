@@ -1,0 +1,3 @@
+'WOW261.conjecture261' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WOW261.conjecture261_totalDominationNumber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WOW261.conjecture261_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]

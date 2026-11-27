@@ -1,0 +1,21 @@
+Exact local preexports. The normal nested bwrap failed in this runtime.
+Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679
+d079a9378a116433e03ddd456ed7984293ab26630e3305fdfd67781e371d6a22  /tmp/palomar261-replay.TbHGED/challenge.ndjson
+1779b897375e011c0dd1e9dc1c968f3b9d79327f5c9dc024266c908ac457c8fb  /tmp/palomar261-replay.TbHGED/solution.ndjson
+f6a6483d518a11b323c28b9bac176d2220df0e9fc3230833815db9586669c074  /palomar261-tools.wXyL9D/lean-4.35.0-linux/bin/leanexport
+12c38901cdbfab178f1bf6145dd30012e9a3b2c11ca695292a5884fa3cbaddb6  /palomar261-tools.wXyL9D/lean-4.35.0-linux/bin/leanchecker
+cbf13950fc4a48f635a0beceeb5ed32dd82568b870cfd081b6391c1f2cf02ba5  /palomar261-tools.wXyL9D/lean-4.35.0-linux/bin/nanoda_bin
+4e5616d94374cae37324dad2594f6230c2bb2297240249fc78ff508f3bc5acef  /tmp/palomar261-kernel-download/con-ron
+WARNING: Sandbox disabled, this run is not trustworthy.
+Running con-ron kernel on solution
+con-ron: 1 inductive blocks modelled in-process: Lean.Syntax (30 generated records, checked by the fold as declarations and not counted as records of the file)
+con-ron: 2 declarations hoisted ahead of the pinned Nat operations they ground: Nat.mul._f, Nat.mul
+con-ron: accepted 8587 declarations (--verified)
+con-ron kernel accepts the solution
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Your solution is okay!
+Local Comparator exit code 0.

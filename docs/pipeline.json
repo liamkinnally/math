@@ -1,0 +1,11 @@
+{
+  "source_repository": "liamkinnally/math",
+  "pipeline_repository": "PalomarRegistry/PalomarSubmission",
+  "pipeline_commit": "046554302064b2c83c2b924bea6db87fc5900c68",
+  "workflow_path": ".github/workflows/submission.yml",
+  "mode": "full",
+  "execution_profile": "palomar-standard-v1",
+  "comparator_config_path": "comparator.json",
+  "formalization_metadata_path": "formalization.yaml",
+  "project_path": ""
+}
