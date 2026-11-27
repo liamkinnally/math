@@ -91,17 +91,17 @@ automation:
       models: ["GPT-6 Astra Pro"]
       framework: "ChatGPT with Codex agents"
       tool_setup: >-
-        Under Liam Kinnally's direction, agents developed the mathematical
+        Under my direction, agents developed the mathematical
         argument, checked prior work, wrote the Lean formalization and
         research note, and compiled and audited the proof.
     - method: "copilot"
       models: ["Gemini 4 Hydrogen"]
       framework: "Gemini"
       tool_setup: >-
-        Liam Kinnally consulted Gemini and relayed its guidance on prior
+        I consulted Gemini and relayed its guidance on prior
         work and publication to the ChatGPT agents.
   notes: >-
-    Liam Kinnally directed and maintains the project. Model contributions
+    I directed and maintain the project. Model contributions
     are recorded by role. Elapsed time and costs were not tracked.
 
 fidelity:
@@ -121,7 +121,7 @@ review:
     Separate agents compared the theorem and definitions with the catalog
     and rebuilt the Lean proof from source. A scoped prior-work search
     found the published supporting bounds and earlier AI Village
-    computational exploration. Independent human expert review is pending.
+    computational exploration. No independent human expert review has been recorded.
     Priority is unassessed.
 
 alignment:

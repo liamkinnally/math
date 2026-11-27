@@ -1,19 +1,48 @@
-# Local verification and required Palomar preflight
+# Verification
 
-## Checked locally on November 27, 2026
+Palomar compared the independent `Challenge.lean` statement with `WOW261.conjecture261_ratio` in the Solution at commit [`551b13e8ce5c1b4b17b18e638cb8d86f27a98718`](https://github.com/liamkinnally/math/tree/551b13e8ce5c1b4b17b18e638cb8d86f27a98718). The official mechanical report records `pass` with zero errors and zero warnings. Lean, nanoda, and con-ron accepted the proof. The permitted axioms were `propext`, `Classical.choice`, and `Quot.sound`. [Mechanical report](https://data.palomar-registry.org/evidence/PALOMAR-2026-11-27-000022-v1/5dfb5ff52d41340a1d561fbff60a4723b332bbd36672887e81010524fb8f19c1/mechanical-report.json)
 
-The eight submitted Lean source modules build with Lean 4.35.0 and pinned Mathlib 56a005855ea17e0b0958f73ec801ae140b0a1679. The six-module mathematical proof from the earlier Lean 4.33.1 package was ported using module/public headers and a replacement for a deprecated simp call; the graph statement and hypotheses are unchanged.
+| Official check | Result |
+| --- | --- |
+| [Full preflight](https://github.com/liamkinnally/math/actions/runs/45959227360) | Passed at the registered commit |
+| [Submission verification](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45960291320) | Passed the proof and Challenge provenance checks |
+| [Challenge rendering](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45961523614) | Passed and produced the formatted statement |
 
-The separate Challenge fixes the actual graph definitions and the exact rational quotient. Its one deliberate theorem hole is the comparison target. No proof-development file or Solution contains an admitted proof. The three completed headline declarations have only propext, Classical.choice and Quot.sound as transitive axioms.
+The [version 1 registry entry](https://palomar-registry.org/entry?id=PALOMAR-2026-11-27-000022&version=1) links to the rendered Challenge and the public evidence. The [PalomarArchive copy](https://github.com/PalomarArchive/liamkinnally--math--ce378b283a07/tree/551b13e8ce5c1b4b17b18e638cb8d86f27a98718) preserves the registered source.
 
-Comparator matched the exact local exports of Challenge and Solution. The solution replay was accepted by Lean, NanoDa, and the Palomar-pinned con-ron checker in verified mode. All checker hashes and the export hashes are recorded in `../verification/local-comparator.log`.
+## Reproduce the check
 
-## Environment limitation
+The project pins Lean `4.35.0` in `lean-toolchain` and Mathlib commit `56a005855ea17e0b0958f73ec801ae140b0a1679` in `lake-manifest.json`. With Git and Elan installed, build the registered snapshot as follows.
 
-The standard nested Bubblewrap launch failed in this execution environment with `bwrap: Can't create file /root: Read-only file system`. Its error is preserved in `../verification/standard-comparator-environment-error.log`. A supported local preexport mode then performed the comparison and kernel replays without that nested sandbox. Comparator explicitly warns that its sandbox-disabled run is not trustworthy as an adversarial verification boundary. The local result is advisory and is **not a passing official Palomar mechanical report**.
+```bash
+git clone https://github.com/liamkinnally/math.git
+cd math
+git checkout --detach 551b13e8ce5c1b4b17b18e638cb8d86f27a98718
+lean --version
+lake exe cache get Mathlib.Combinatorics.SimpleGraph.Acyclic \
+  Mathlib.Combinatorics.SimpleGraph.Star \
+  Mathlib.Algebra.Order.Field.Basic Mathlib.Algebra.Order.Field.Rat
+lake build
+```
 
-Before intake, the full official reusable workflow must pass at the exact public GitHub source commit. `.github/workflows/palomar.yml` supplies that workflow with the approved GitHub-hosted execution profile and an immutable pipeline pin. No CI pass, submission acceptance, or registry entry is claimed by these local logs.
+On Linux with a working Bubblewrap sandbox, run the statement comparison.
 
-## Integrity
+```bash
+lake comparator
+```
 
-From the repository root, run `sha256sum -c verification/statement-and-proof.sha256` to compare the build and statement sources with the locally audited versions. `SHA256SUMS` additionally covers the complete packaged source snapshot.
+The build may warn about the deliberate comparison hole in `Challenge.lean`. `Solution.lean` imports the completed proof. To audit the quotient theorem’s axioms directly, run the following.
+
+```bash
+lake env lean --stdin <<'LEAN'
+import Solution
+
+#print axioms WOW261.conjecture261_ratio
+LEAN
+```
+
+The [proof checksum manifest](../verification/statement-and-proof.sha256) covers the statement, proof, and build configuration. Run `sha256sum -c verification/statement-and-proof.sha256` from the repository root. The [full manifest](../SHA256SUMS) also covers the documentation in the same checkout.
+
+## Historical local replay
+
+Before the official runs, Bubblewrap could not start inside the local runner. An advisory local check compared prebuilt exports and replayed the proof with Lean, nanoda, and con-ron, with Comparator’s nested sandbox disabled. The official runs above used Palomar’s pinned sandbox. [Sandbox startup error](../verification/standard-comparator-environment-error.log) · [Advisory replay log](../verification/local-comparator.log)

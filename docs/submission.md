@@ -1,28 +1,11 @@
-# Palomar submission procedure
+# Palomar registration
 
-The root project is prepared for an ordinary new submission of Written on the Wall II #261. The selected result is `WOW261.conjecture261_ratio`; the intended responsible author and maintainer is Liam Kinnally. The file `formalization.yaml` discloses GPT-6 Astra Pro and Gemini 4 Hydrogen assistance and pending independent human expert review.
+Palomar registered [A proof of Written on the Wall II Conjecture 261](https://palomar-registry.org/entry?id=PALOMAR-2026-11-27-000022&version=1) as **`PALOMAR-2026-11-27-000022`, version 1** on November 27, 2026. The registered theorem is `WOW261.conjecture261_ratio`. It states the catalog’s inequality with rational division for finite connected simple graphs on at least two vertices.
 
-## Before intake
+The [versioned record](https://data.palomar-registry.org/entries/PALOMAR-2026-11-27-000022-v1.json) pins `liamkinnally/math` at [`551b13e8ce5c1b4b17b18e638cb8d86f27a98718`](https://github.com/liamkinnally/math/tree/551b13e8ce5c1b4b17b18e638cb8d86f27a98718). Later documentation changes on `main` are outside that registered snapshot.
 
-Publish this complete source project at the root of [liamkinnally/math](https://github.com/liamkinnally/math). Use the full 40-character commit returned by `git rev-parse HEAD`. The normal settings are:
+- [Lean statement](https://github.com/liamkinnally/math/blob/551b13e8ce5c1b4b17b18e638cb8d86f27a98718/Challenge.lean) and [proof](https://github.com/liamkinnally/math/blob/551b13e8ce5c1b4b17b18e638cb8d86f27a98718/Main.lean)
+- [Comparator configuration](https://github.com/liamkinnally/math/blob/551b13e8ce5c1b4b17b18e638cb8d86f27a98718/comparator.json) and [official verification run](https://github.com/PalomarRegistry/PalomarSubmission/actions/runs/45960291320)
+- [Preserved source](https://github.com/PalomarArchive/liamkinnally--math--ce378b283a07/tree/551b13e8ce5c1b4b17b18e638cb8d86f27a98718) and [public automated review](https://data.palomar-registry.org/evidence/PALOMAR-2026-11-27-000022-v1/5dfb5ff52d41340a1d561fbff60a4723b332bbd36672887e81010524fb8f19c1/review.json)
 
-- Repository `liamkinnally/math`.
-- Project directory: repository root (leave blank).
-- Comparator configuration: `comparator.json`.
-- Formalization metadata: `formalization.yaml` (default).
-- Existing Palomar ID: blank for this new result.
-- Relationship: responsible author or maintainer, as authorized by Liam Kinnally.
-
-The included GitHub Actions workflow runs Palomar's complete reusable verification with `mode: full` and `execution_profile: palomar-standard-v1`. The workflow reference and `pipeline_commit` both pin `046554302064b2c83c2b924bea6db87fc5900c68`. Inspect the `mechanical-report-preflight001` artifact and require `status: pass` for the exact source commit before submission. A local Lean build or local Comparator run does not replace this full preflight.
-
-## Submit and retain the result
-
-The submission host is https://submit.palomar-registry.org/. Palomar's published agent protocol is https://submit.palomar-registry.org/llms.txt. A human can use the browser form and perform GitHub authorization themselves. An agent must use the documented repository-tag plus secret-gist verification protocol with the required authenticated access; it must not perform Palomar's human OAuth authorization. The temporary proof tag and gist are deleted after successful access verification.
-
-The submission access token is a credential. Keep it out of Git, this repository, logs, and public messages. Preserve the private status link or token securely so the review can be retrieved. When verification completes, read the automated review before deciding whether to register.
-
-Registration publishes the immutable repository revision, metadata, and review. The author should read that review and make the final registration decision. Submitting for verification and being registered are distinct outcomes. This repository does not claim either until the corresponding service result is available.
-
-## Current local verification
-
-See `docs/verification.md` for the exact local checks and their limits. The submitted theorem is fully proved. The deliberate `sorry` in `Challenge.lean` is the independent comparison target, and the Solution must contain none.
+See [verification](verification.md) for the official checks and the commands to rebuild the registered proof.
