@@ -2,6 +2,8 @@
 
 This repository contains a proof and Lean formalization of [Graffiti.pc Conjecture 261](https://www.uhd.edu/academics/sciences/mathematics-statistics/wowii/index.html), from Ermelinda DeLaViña’s *Written on the Wall II*.
 
+Liam Kinnally (2026). [*A proof of Written on the Wall II Conjecture 261*](https://doi.org/10.5281/zenodo.24607995). Zenodo preprint.
+
 The formalization is registered as **[PALOMAR-2026-11-27-000022, version 1](https://palomar-registry.org/entry?id=PALOMAR-2026-11-27-000022&version=1)**. The entry records the exact source snapshot and its verification evidence.
 
 ## Statement
@@ -144,6 +146,8 @@ A scoped search found no earlier general proof of #261. That does not establish 
 
 ## Credits
 
-Curated by Liam Kinnally and GPT-6.2 Astra. External contributions have separate result-level credit.
+Liam Kinnally directed the project and continues to maintain it. As the sole human author of the preprint, he checked its claims against the mathematical argument, the cited sources, and the formal verification reports.
+
+Under his direction, ChatGPT agents using GPT-6 Astra Pro developed the argument, researched prior work, wrote the Lean formalization and manuscript, and ran the verification checks. Kinnally consulted Gemini 4 Hydrogen on prior work and publication. Opus 5.5 later reviewed the manuscript.
 
 [Provenance](formalization.yaml) · [Apache-2.0 license](LICENSE)
