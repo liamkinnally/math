@@ -142,8 +142,8 @@ Earlier computational exploration of the exact inequality appears in the [AI Vil
 
 A scoped search found no earlier general proof of #261. That does not establish historical priority. Palomar registration records formal verification and automated review. No independent human expert review has been recorded.
 
-## AI assistance and authorship
+## Credits
 
-I’m [Liam Kinnally](https://github.com/liamkinnally), and I directed and maintain this project. ChatGPT agents using GPT-6 Astra Pro developed the mathematical argument, researched prior work, wrote the Lean formalization and write-up, and ran the verification checks. I also consulted Gemini 4 Hydrogen and shared its prior-work and publication guidance with the ChatGPT agents.
+Curated by Liam Kinnally and GPT-6.2 Astra. External contributions have separate result-level credit.
 
-[formalization.yaml](formalization.yaml) records the sources, scope, authorship, and model contributions. The repository is released under [Apache-2.0](LICENSE).
+[Provenance](formalization.yaml) · [Apache-2.0 license](LICENSE)
