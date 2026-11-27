@@ -146,8 +146,8 @@ A scoped search found no earlier general proof of #261. That does not establish 
 
 ## Credits
 
-Liam Kinnally directed the project and continues to maintain it. As the sole human author of the preprint, he checked its claims against the mathematical argument, the cited sources, and the formal verification reports.
+I directed this project and maintain the repository. As the sole human author of the preprint, I checked its claims against the mathematical argument, the cited sources, and the formal verification reports.
 
-Under his direction, ChatGPT agents using GPT-6 Astra Pro developed the argument, researched prior work, wrote the Lean formalization and manuscript, and ran the verification checks. Kinnally consulted Gemini 4 Hydrogen on prior work and publication. Opus 5.5 later reviewed the manuscript.
+Under my direction, ChatGPT agents using GPT-6 Astra Pro developed the argument, researched prior work, wrote the Lean formalization and manuscript, and ran the verification checks. I consulted Gemini 4 Hydrogen on prior work and publication. Opus 5.5 later reviewed the manuscript.
 
 [Provenance](formalization.yaml) · [Apache-2.0 license](LICENSE)
